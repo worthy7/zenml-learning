@@ -1,0 +1,12 @@
+spec_version: 1
+spec_type: component
+component_type: "artifact_store"
+component_flavor: "minio"
+name: "quickstart_minio_bucket"
+provider: k3d
+metadata:
+  config:
+    bucket_name: "quickstart_minio_bucket"
+  tags:
+    deployed-by: "mlstacks"
+  region: "local"

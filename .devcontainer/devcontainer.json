@@ -1,0 +1,42 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/python
+{
+	"name": "Python 3",
+	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+	//"image": "mcr.microsoft.com/devcontainers/python:0-3.10",
+	"build": {
+		"dockerfile": "Dockerfile"
+	},
+	"features": {
+		"ghcr.io/devcontainers-contrib/features/poetry:2": {},
+		//"ghcr.io/worthy7/features/docker-in-docker-real:2": {},
+		"ghcr.io/devcontainers/features/docker-in-docker:2": {}
+	},
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"ms-python.python",
+				"ms-toolsai.jupyter",
+				"hashicorp.terraform",
+				"GitHub.copilot",
+				"ms-python.autopep8",
+				"ms-python.vscode-pylance"
+			],
+		}
+	},
+	// Features to add to the dev container. More info: https://containers.dev/features.
+	// "features": {},
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	// "forwardPorts": [],Preb
+	// Use 'postCreateCommand' to run commands after the container is created.
+	//"postCreateCommand": "docker stop $(docker ps -a -q)",
+	"postStartCommand": "poetry install --no-root",
+	"onCreateCommand": "docker stop $(docker ps -a -q)",
+	// Configure tool-specific properties.
+	// "customizations": {},
+	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+	// "remoteUser": "root"
+	// remove docker volume before making the container because we need it to be clean.
+	//"initializeCommand": "docker volume rm dind-var-lib-docker-${devcontainerId}", // this runs every time a container starts....
+	//"postCreateCommand": "docker volume rm dind-var-lib-docker-${devcontainerId}",
+}

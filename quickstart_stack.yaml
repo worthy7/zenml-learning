@@ -1,0 +1,9 @@
+spec_version: 1
+spec_type: stack
+name: "quickstart_stack"
+provider: k3d
+default_region: "local"
+default_tags:
+  deployed-by: "mlstacks"
+components:
+  - simple_component_minio.yaml

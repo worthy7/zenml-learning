@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "zenml-learning"
+version = "0.1.0"
+description = ""
+authors = ["Your Name <you@example.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "~3.10"
+
+[tool.poetry.group.dev.dependencies]
+jupyter = "^1.0.0"
+zenml = {extras = ["server"], version = "0.46.0"}
+mlstacks = "^0.7.8"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
