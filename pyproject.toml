@@ -9,9 +9,8 @@ readme = "README.md"
 python = "~3.10"
 
 [tool.poetry.group.dev.dependencies]
-jupyter = "^1.0.0"
-zenml = {extras = ["server"], version = "0.46.0"}
-mlstacks = "^0.7.8"
+zenml = {extras = ["server"], version = "*"}
+mlstacks = "*"
 
 [build-system]
 requires = ["poetry-core"]

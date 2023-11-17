@@ -1,5 +1,7 @@
 #https://docs.zenml.io/v/docs/stacks-and-components/component-guide/orchestrators/kubernetes
 
+zenml up --docker
+
 # ensure some integrations are installed
 yes | zenml integration install kubernetes
 
@@ -27,3 +29,10 @@ zenml stack update comp_test_kubernetes_stack -o comp_test_kubernetes -c comp_te
 
 # run pipeline
 python basic_pipeline.py
+
+zenml stack set default
+yes | zenml stack delete comp_test_kubernetes_stack
+# component (destroy/remove)
+yes | zenml orchestrator destroy comp_test_kubernetes  -p k3d 
+# destory does not remove the registration or the cr, so we do it manually
+yes | zenml container-registry delete comp_test_kubernetes  

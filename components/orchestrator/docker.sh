@@ -1,6 +1,5 @@
 #https://docs.zenml.io/v/docs/stacks-and-components/component-guide/orchestrators/local-docker
 
-
 # ensure some integrations are installed
 # NA
 
@@ -26,3 +25,8 @@ zenml stack update comp_test_orc_docker_stack -o comp_test_orc_docker
 
 # run pipeline
 python basic_pipeline.py
+
+# stop and delete all containers
+#docker stop $(docker ps -a -q)
+#docker remove $(docker ps -a -q)
+#docker volume remove $(docker volume ls -q)
